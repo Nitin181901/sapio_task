@@ -1,0 +1,15 @@
+<h1>Add New Destination</h1>
+
+<%= form_for @destination do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'Destination Name' %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, 'Destination Address' %>
+    <%= f.text_field :address, class: 'form-control', required: true %>
+  </div>
+
+  <%= f.submit 'Add Destination', class: 'btn btn-primary' %>
+<% end %>

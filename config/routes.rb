@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   resources :roles, only: [:new,:create,:index]
   resources :categories, only: [:new,:create,:index]
   resources :subcategories, only: [:new,:create,:index]
+  resources :destinations, only: [:new,:create,:index]
   resources :expenses, only: [:new,:create,:index]
   resources :subcategories, only: [:new,:create,:index]
+  resources :destinations
+  resources :trips
   resources :sessions, only: [:new, :create] do
     get 'report'
     post 'destroy'
@@ -34,4 +37,5 @@ Rails.application.routes.draw do
   get 'home/task_management', to: 'home#task_management'
   get 'home/expense_tracker', to: 'home#expense_tracker'
   get 'home/currency_converter', to: 'home#currency_converter'
+  get 'home/travel_itenary', to: 'home#travel_itenary'
 end

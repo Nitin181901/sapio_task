@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def currency_converter
   end
+
+  def travel_itenary
+  end
 end
