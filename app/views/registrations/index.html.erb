@@ -1,0 +1,10 @@
+	<% @user.each do |user| %>
+		<%= user.name %>
+		<%= user.email %>
+		<% @roles.each do |role| %>
+			<%= form_tag(registration_assign_role_path(user.id), method: :post) do %>
+			  <%= hidden_field_tag :role_id, role.id %>
+			  <%= submit_tag role.name, class: 'btn btn-link' %>
+			<% end %>
+		<% end %>
+	<% end %>

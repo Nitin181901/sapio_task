@@ -1,0 +1,32 @@
+<div class="text-center">
+  <h1>New Task</h1>
+
+  <%= form_with(model: @task, url: tasks_path, local: true) do |f| %>
+
+    <!-- Field of registration form -->
+    <div class='row'>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: 'Please enter task title' %>
+    </div>
+
+    <div class='row'>
+      <%= f.label :description %>
+      <%= f.text_field :description, placeholder: 'Please enter description' %>
+    </div>
+
+    <div class='row'>
+      <%= f.label :select_user %>
+      <%= f.select :user_id, @users.all.collect { |p| [p.name, p.id] }, { include_blank: 'Please enter user' }, { class: 'form-control' } %>
+
+    </div>
+
+    <div class='row'>
+      <%= f.label :deadline %>
+      <%= f.date_field :deadline, placeholder: 'Please enter deadline of task' %>
+    </div>
+
+    <div class='row'>
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end%>
+</div>

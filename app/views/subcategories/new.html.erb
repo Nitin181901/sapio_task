@@ -1,0 +1,23 @@
+<div class="text-center">
+  <h1>New Sub Category</h1>
+
+  <%= form_with(model: @category, url: subcategories_path, local: true) do |f| %>
+
+    <!-- Field of sessoin form -->
+    <div class='row'>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'Please enter category name' %>
+    </div>
+
+    <div class='row'>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, @categories.all.collect { |p| [p.name, p.id] }, { include_blank: 'Please enter Catgory' }, { class: 'form-control' } %>
+    </div>
+
+    <div class='row'>
+      <%= f.submit 'Create' %>
+    </div>
+
+    <a href=<%= new_registration_path %>>Sign Up</a>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SapioTask</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <%= form_with(model: @user, url: session_destroy_path(session[:user_id]), local: true) do |f| %>
+        <%= f.submit 'Sign Out' %>
+      <% end %>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/flash' %>
+  </body>
+</html>

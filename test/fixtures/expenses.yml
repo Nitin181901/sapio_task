@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  amount: 1
+  date: 2023-11-21
+  category_id: 1
+  subcategory_id: 1
+  active: false
+
+two:
+  description: MyText
+  amount: 1
+  date: 2023-11-21
+  category_id: 1
+  subcategory_id: 1
+  active: false

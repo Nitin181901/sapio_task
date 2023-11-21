@@ -1,0 +1,30 @@
+<h1>Task Created</h1>
+<% @tasks.where(status: "task created").each do |task| %>
+	Task Title: <%= task.title %><br>
+	Task Assigned to: <%= task.user.name %><br>
+	Task deadline to: <%= task.deadline %><br><hr>
+<% end %>
+<h1>Task Accepted</h1>
+<% @tasks.where(status: "Task Accepted").each do |task| %>
+	Task Title: <%= task.title %><br>
+	Task Assigned to: <%= task.user.name %><br>
+	Task deadline to: <%= task.deadline %><br><hr>
+<% end %>
+<h1>Task Not Accepted</h1>
+<% @tasks.where(status: "Task not accept").each do |task| %>
+	Task Title: <%= task.title %><br>
+	Task Assigned to: <%= task.user.name %><br>
+	Task deadline to: <%= task.deadline %><br><hr>
+<% end %>
+<h1>Task In Progress</h1>
+<% @tasks.where(status: "Task in progess").each do |task| %>
+	Task Title: <%= task.title %><br>
+	Task Assigned to: <%= task.user.name %><br>
+	Task deadline to: <%= task.deadline %><br><hr>
+<% end %>
+<h1>Task Completed</h1>
+<% @tasks.where(status: "Task completed").each do |task| %>
+	Task Title: <%= task.title %><br>
+	Task Assigned to: <%= task.user.name %><br>
+	Task deadline to: <%= task.deadline %><br><hr>
+<% end %>

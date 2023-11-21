@@ -1,0 +1,19 @@
+<div class="container">
+  <div><a href="<%= new_task_path %>">Add new task</a></div>
+  <% @task.each do |task| %>
+    <%= task.title %>
+    <%= task.description %>
+    <%= task.deadline %><br>
+
+    <% if task.status.downcase == "task created" %>
+	    <%= button_to "Task Accept", task_accept_task_path(task), method: :post, class: "btn btn-primary" %>
+	    <%= button_to "Task Not Accept", task_not_accept_task_path(task), method: :post, class: "btn btn-danger" %>
+    <% end %>
+    <% if task.status.downcase == "task accepted" %>
+    	<%= button_to "In Progress", task_task_in_progress_path(task), method: :post, class: "btn btn-warning" %>
+    <% end %>
+    <% if task.status.downcase == "task in progess" %>
+    	<%= button_to "Task Completed", task_task_completed_path(task), method: :post, class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+</div>

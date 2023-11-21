@@ -1,0 +1,18 @@
+<div class="text-center">
+  <h1>New Category</h1>
+
+  <%= form_with(model: @category, url: categories_path, local: true) do |f| %>
+
+    <!-- Field of sessoin form -->
+    <div class='row'>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'Please enter category name' %>
+    </div>
+
+    <div class='row'>
+      <%= f.submit 'Create' %>
+    </div>
+
+    <a href=<%= new_registration_path %>>Sign Up</a>
+  <% end %>
+</div>

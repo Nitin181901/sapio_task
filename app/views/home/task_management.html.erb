@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h1>Task Managment</h1>
+  <h1>Welcome <%= current_user.name %></h1>
+
+  <% current_user.tasks.where.not(status: "Task completed").each do |task| %>
+    <h2 style="color: red;"><%= "Deadline of task #{task.title} in #{(task.deadline - Date.today).to_i} days" %></h2>
+  <% end %>
+
+  <% if current_user.role_id == 3 %>
+    <a href=<%= registrations_path %>> Assign role </a><br>
+    <a href=<%= new_role_path %>> New Role </a><br>
+    <a href=<%= session_report_path(session[:user_id]) %>> View Report </a><br>
+  <% end %>
+    <a href=<%= new_task_path %>> Assign Task </a><br>
+    <a href=<%= tasks_path %>> View Tasks </a><br>
+</div>

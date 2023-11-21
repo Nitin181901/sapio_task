@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h1>New Role</h1>
+
+  <%= form_with(model: @role, url: roles_path, local: true) do |f| %>
+
+    <!-- Field of registration form -->
+    <div class='row'>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'Please enter name' %>
+    </div>
+
+    <div class='row'>
+      <%= f.submit 'Create' %>
+    </div>
+  <% end%>
+</div>
