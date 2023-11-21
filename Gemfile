@@ -19,6 +19,12 @@ gem "importmap-rails"
 
 gem 'bcrypt'
 
+gem 'httparty'
+gem 'chartkick'
+gem 'groupdate'
+
+gem 'pry-rails'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 

@@ -1,0 +1,21 @@
+<h1>Historical Exchange Rate Chart</h1>
+
+<%= form_tag(historical_chart_currencies_path, method: :get) do %>
+  <%= label_tag 'Base Currency' %>
+  <%= select_tag :base_currency, options_for_select(Currency.pluck(:code)) %>
+
+  <%= label_tag 'Target Currency' %>
+  <%= select_tag :target_currency, options_for_select(Currency.pluck(:code)) %>
+
+  <%= label_tag 'Start Date' %>
+  <%= text_field_tag :start_date, Date.today - 30.days %>
+
+  <%= label_tag 'End Date' %>
+  <%= text_field_tag :end_date, Date.today %>
+
+  <%= submit_tag 'Show Chart' %>
+<% end %>
+
+<% if @historical_rates %>
+  <%= line_chart @historical_rates, library: { title: { text: 'Historical Exchange Rates' } } %>
+<% end %>

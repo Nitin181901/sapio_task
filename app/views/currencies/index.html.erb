@@ -1,0 +1,20 @@
+<h1>Currencies</h1>
+
+<%= form_tag(convert_currencies_path, method: :get) do %>
+  <%= label_tag 'Base Currency' %>
+  <%= select_tag :base_currency, options_for_select(Currency.pluck(:code)) %>
+
+  <%= label_tag 'Target Currency' %>
+  <%= select_tag :target_currency, options_for_select(Currency.pluck(:code)) %>
+
+  <%= label_tag 'Amount' %>
+  <%= text_field_tag :amount %>
+
+  <%= submit_tag 'Convert' %>
+<% end %>
+
+<% if @converted_amount %>
+  <p><%= @converted_amount %></p>
+<% end %>
+
+<%= link_to 'Historical Chart', historical_chart_currencies_path %>

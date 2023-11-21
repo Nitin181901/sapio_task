@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     get 'report'
     post 'destroy'
   end
+  resources :currencies, only: [:index] do
+    get 'convert', on: :collection
+    get 'historical_chart', on: :collection
+  end
   root to: 'home#index'
   get 'home/task_management', to: 'home#task_management'
   get 'home/expense_tracker', to: 'home#expense_tracker'
