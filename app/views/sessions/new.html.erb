@@ -1,3 +1,5 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <div class="text-center">
   <h1>Sign In</h1>
 
@@ -12,6 +14,16 @@
     <div class='row'>
       <%= f.label :password %>
       <%= f.password_field :password, placeholder: 'Please enter password' %>
+    </div>
+
+    <div class='row'>
+      <%= f.label :capcha %>
+      <%= f.text_field :capcha, value: rand(9999), readonly: true %>
+    </div>
+
+    <div class='row'>
+      <%= f.label :enter_capcha %>
+      <%= f.text_field :enter_capcha %>
     </div>
 
     <div class='row'>

@@ -8,9 +8,11 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:user][:email])
-    if @user.present? && @user.authenticate(params[:user][:password])
+    if @user.present? && @user.authenticate(params[:user][:password]) && params[:user][:capcha] == params[:user][:enter_capcha]
       session[:user_id] = @user.id
       redirect_to root_path, flash: { success: 'Logged in successfully' }
+    elsif params[:user][:capcha] != params[:user][:enter_capcha]
+      redirect_to new_session_path, flash: { success: 'Enter Correct Capcha' }
     else
       render :new
     end

@@ -6,9 +6,7 @@
     <h2 style="color: red;"><%= "Deadline of task #{task.title} in #{(task.deadline - Date.today).to_i} days" %></h2>
   <% end %>
 
-  <% if current_user.role_id == 3 %>
-    <a href=<%= registrations_path %>> Assign role </a><br>
-    <a href=<%= new_role_path %>> New Role </a><br>
+  <% if current_user.role_id == 2 %>
     <a href=<%= session_report_path(session[:user_id]) %>> View Report </a><br>
   <% end %>
     <a href=<%= new_task_path %>> Assign Task </a><br>
