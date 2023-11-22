@@ -10,3 +10,6 @@
 Currency.create(name: 'US Dollar', code: 'USD', active: true)
 Currency.create(name: 'Euro', code: 'EUR', active: true)
 Currency.create(name: 'British Pound', code: 'GBP', active: true)
+
+Role.create(name: "regular", active: true)
+Role.create(name: "admin", active: true)
