@@ -28,5 +28,6 @@ class CurrenciesController < ApplicationController
     end_date = params[:end_date]
 
     @historical_rates = converter.historical_exchange_rate(base_currency, target_currency, start_date, end_date)
+    puts "API Response: #{@historical_rates.inspect}"
   end
 end
