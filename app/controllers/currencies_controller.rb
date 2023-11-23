@@ -12,6 +12,10 @@ class CurrenciesController < ApplicationController
     amount = params[:amount].to_f
 
     @converted_amount = converter.live_exchange_rate(base_currency, target_currency) * amount
+    respond_to do |format|
+      format.html { render 'index' } # Add this line if you still want to handle HTML requests
+      format.json { render json: { converted_amount: @converted_amount } }
+    end
   end
 
   def historical_chart
