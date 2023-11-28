@@ -16,6 +16,6 @@
   <%= submit_tag 'Show Chart' %>
 <% end %>
 
-<% if @historical_rates %>
-  <%= line_chart @historical_rates, library: { title: { text: 'Historical Exchange Rates' } } %>
+<% if @sorted_historical_array %>
+  <%= line_chart @sorted_historical_array, library: { title: { text: 'Historical Exchange Rates' } } %>
 <% end %>

@@ -14,7 +14,7 @@
 <% end %>
 
 <% if @converted_amount %>
-  <p><%= @converted_amount %></p>
+  <p>Converted Amount: <%= "#{@amount} #{@base_currency} = #{@converted_amount} #{@target_currency}" %></p>
 <% end %>
 
 <%= link_to 'Historical Chart', historical_chart_currencies_path %>

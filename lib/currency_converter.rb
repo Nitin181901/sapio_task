@@ -3,7 +3,7 @@ class CurrencyConverter
   base_uri 'http://api.currencylayer.com'
 
   def initialize(api_key)
-    @api_key = api_key
+    @api_key = "e117dfca22c8c84f6c888aad9cec2a44"
   end
 
   def live_exchange_rate(base_currency, target_currency)
