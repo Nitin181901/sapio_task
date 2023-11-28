@@ -15,7 +15,7 @@ class ExpensesController < ApplicationController
 	end
 
 	def index
-		
+		@expenses = Expense.where(active: true)
 	end
 
 	def expenses_params

@@ -1,0 +1,11 @@
+<div class="container">
+  <div><a href="<%= new_expense_path %>">Add new task</a></div>
+  <% @expenses.joins(:category).joins(:subcategory).each do |expense| %>
+    Expense Created by: <%= expense.name %><br>
+    Expense description: <%= expense.description %><br>
+    Expense Amount: <%= expense.amount %><br>
+    Expense Category: <%= expense.category.name %><br>
+    Expense Subcategory: <%= expense.subcategory.name %><br><br>
+  <% end %>
+
+</div>
