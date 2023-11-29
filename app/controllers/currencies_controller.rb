@@ -7,7 +7,13 @@ class CurrenciesController < ApplicationController
     api_key = 'e117dfca22c8c84f6c888aad9cec2a44' 
     converter = CurrencyConverter.new(api_key)
 
-    return if params[:amount].blank?
+    if params[:base_currency] == params[:target_currency]
+      redirect_to currencies_path, flash: {success: "Base and target currency cant be same"}
+      return
+    elsif params[:amount].blank?
+      redirect_to currencies_path, flash: {success: "Amount is empty"}
+      return
+    end
 
     @base_currency = params[:base_currency]
     @target_currency = params[:target_currency]
@@ -15,7 +21,7 @@ class CurrenciesController < ApplicationController
 
     @converted_amount = converter.live_exchange_rate(@base_currency, @target_currency) * @amount
     respond_to do |format|
-      format.html { render 'index' } # Add this line if you still want to handle HTML requests
+      format.html { render 'index' }
       format.json { render json: { converted_amount: @converted_amount } }
     end
   end

@@ -1,10 +1,11 @@
 	<% @user.each do |user| %>
-		<%= user.name %>
-		<%= user.email %>
-		<% @roles.each do |role| %>
+		User Name: <%= user.name %><br>
+		User Email: <%= user.email %><br>
+		CurrentRole: <%= Role.find(user.role_id).name %><br>
+		<% @roles.where.not(id: user.role_id).each do |role| %>
 			<%= form_tag(registration_assign_role_path(user.id), method: :post) do %>
 			  <%= hidden_field_tag :role_id, role.id %>
 			  <%= submit_tag role.name, class: 'btn btn-link' %>
 			<% end %>
-		<% end %>
+		<% end %><br><br>
 	<% end %>

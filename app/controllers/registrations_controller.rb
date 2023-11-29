@@ -24,6 +24,7 @@ class RegistrationsController < ApplicationController
 
   def assign_role
     @user = User.where(id: params[:registration_id]).update(role_id: params[:role_id])
+      redirect_to registration_assign_role_path, flash: { success: 'Role Updated successfully' }
   end
 
   def user_params
