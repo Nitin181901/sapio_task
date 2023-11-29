@@ -3,7 +3,11 @@
   <h1>Welcome <%= current_user.name %></h1>
 
   <% current_user.tasks.where.not(status: "Task completed").each do |task| %>
-    <h2 style="color: red;"><%= "Deadline of task #{task.title} in #{(task.deadline - Date.today).to_i} days" %></h2>
+    <h2 style="color: red;"><% if task.deadline > Date.today %><%= "Deadline of task #{task.title} in #{(task.deadline - Date.today).to_i} days" %>
+      <% else %>
+        <%= "Deadline of task #{task.title} has been crossed on #{task.deadline} days" %>
+      <% end %>
+    </h2>
   <% end %>
 
   <% if current_user.role_id == 2 %>
