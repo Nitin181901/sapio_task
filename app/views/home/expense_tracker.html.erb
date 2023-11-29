@@ -2,3 +2,8 @@
 <a href=<%= new_category_path %>>Create Category </a><br><hr>
 <a href=<%= new_subcategory_path %>>Create Sub Category </a><br><hr>
 <a href=<%= new_expense_path %>>Create Expense </a><br><hr>
+<%= @expenses_array.inspect %>
+<%= @formatted_chart_data.inspect %>
+<% if @chart_data %>
+	<%= column_chart @chart_data, library: { title: { text: 'Historical Exchange Rates' } } %>
+<% end %>

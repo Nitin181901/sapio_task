@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   end
 
   def expense_tracker
-  end
+    expenses = Expense.all
+    @chart_data = expenses.map { |expense| { name: expense.date, data: { expense.date => expense.amount } } }  end
 
   def currency_converter
   end
