@@ -2,10 +2,10 @@
 
 <%= form_tag(convert_currencies_path, method: :get) do %>
   <%= label_tag 'Base Currency' %>
-  <%= select_tag :base_currency, options_for_select(Currency.pluck(:code)) %>
+  <%= select_tag :base_currency, options_for_select(Currency.where(active: true).pluck(:code)) %>
 
   <%= label_tag 'Target Currency' %>
-  <%= select_tag :target_currency, options_for_select(Currency.pluck(:code)) %>
+  <%= select_tag :target_currency, options_for_select(Currency.where(active: true).pluck(:code)) %>
 
   <%= label_tag 'Amount' %>
   <%= text_field_tag :amount %>
